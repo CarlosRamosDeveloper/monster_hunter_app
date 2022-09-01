@@ -1,6 +1,6 @@
 import 'package:flutter_test/flutter_test.dart';
-import 'package:monster_hunter_app/src/data/failures.dart';
-import 'package:monster_hunter_app/src/utils/date_format.dart';
+
+import '../lib/src/utils/date_format.dart';
 
 void main() {
   group('date format DMY tests', () {

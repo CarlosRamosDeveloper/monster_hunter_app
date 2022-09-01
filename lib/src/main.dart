@@ -1,8 +1,10 @@
 import 'package:flutter/material.dart';
-import 'package:monster_hunter_app/src/route/app_route.dart';
-import 'package:monster_hunter_app/src/screens/home/homescreen.dart';
-import 'package:monster_hunter_app/src/themes/app_themes.dart';
+
 import 'dependencies/di.dart' as di;
+
+import 'package:monster_hunter_app/src/screens/screens.dart';
+import 'route/app_route.dart';
+import 'themes/app_themes.dart';
 
 void main() async {
   await di.init();
