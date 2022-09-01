@@ -1,5 +1,43 @@
 import 'package:flutter/material.dart';
 
+enum AppTheme {
+  nargacuga(
+    theme: CustomThemeData(
+        primaryColor: Color.fromARGB(255, 12, 5, 42),
+        secondaryColor: Color.fromARGB(255, 143, 46, 46),
+        tertiaryColor: Color.fromARGB(255, 223, 217, 45),
+        isDarkMode: true),
+    themeName: 'Nargacuga Theme',
+  ),
+  zinogre(
+    theme: CustomThemeData(
+        primaryColor: Color.fromARGB(255, 54, 128, 15),
+        secondaryColor: Color.fromARGB(255, 201, 192, 28),
+        tertiaryColor: Color(0xff7df9ff)),
+    themeName: 'Zinogre Theme',
+  ),
+  mizutsune(
+    theme: CustomThemeData(
+        secondaryColor: Color.fromARGB(255, 241, 104, 156),
+        tertiaryColor: Color.fromARGB(255, 82, 11, 59),
+        primaryColor: Color.fromARGB(255, 244, 240, 187)),
+    themeName: 'Mizutsune Theme',
+  ),
+  kushala(
+    theme: CustomThemeData(
+        primaryColor: Color.fromARGB(255, 87, 87, 87),
+        secondaryColor: Color(0xffafafaf),
+        tertiaryColor: Color.fromARGB(255, 178, 112, 42),
+        isDarkMode: true),
+    themeName: 'Kushala Daora Theme',
+  );
+
+  final CustomThemeData theme;
+  final String themeName;
+
+  const AppTheme({required this.theme, required this.themeName});
+}
+
 class CustomThemeData {
   final Color primaryColor;
   final Color secondaryColor;
