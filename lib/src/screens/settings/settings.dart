@@ -1,8 +1,12 @@
+import 'dart:developer';
+
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 
+import '../../bloc/player_data_bloc/player_data_bloc.dart';
 import '../../bloc/themes_bloc/themes_bloc.dart';
 import '../../themes/app_themes.dart';
+import '../../widgets/separator.dart';
 
 class SettingsScreen extends StatefulWidget {
   const SettingsScreen({Key? key}) : super(key: key);
@@ -23,13 +27,12 @@ class _SettingsScreenState extends State<SettingsScreen> {
           ),
           body: SafeArea(
             child: Column(
-              children: [
-                const SizedBox(
+              children: const [
+                SizedBox(
                   height: 30,
                 ),
-                
-                const _ThemesList(),
-                Container()
+                _ThemesList(),
+                _DeleteDataButton()
               ],
             ),
           ),
@@ -88,6 +91,7 @@ class _ThemeCard extends StatelessWidget {
           onTap: () {
             BlocProvider.of<ThemesBloc>(context)
                 .add(SwitchThemeEvent(theme: theme));
+            log('Botón ${state.props} pulsado');
           },
           child: Container(
             margin: const EdgeInsets.symmetric(vertical: 10, horizontal: 30),
@@ -110,5 +114,108 @@ class _ThemeCard extends StatelessWidget {
         );
       },
     );
+  }
+}
+
+class _DeleteDataButton extends StatelessWidget {
+  const _DeleteDataButton({
+    Key? key,
+  }) : super(key: key);
+
+  @override
+  Widget build(BuildContext context) {
+    return GestureDetector(
+      onTap: () {
+        //TODO: Elimina todos los sets almancenados.
+        showDeleteDialog(context);
+      },
+      child: Column(
+        children: [
+          const Separator(),
+          Container(
+              margin: const EdgeInsets.symmetric(vertical: 10),
+              height: 50,
+              width: 230,
+              child: Container(
+                  decoration: BoxDecoration(
+                      color: Theme.of(context).colorScheme.secondary,
+                      borderRadius: BorderRadius.circular(15)),
+                  child: Center(
+                      child: Text(
+                    'Eliminar datos almacenados',
+                    style: TextStyle(
+                        color: Theme.of(context).colorScheme.onPrimary,
+                        fontWeight: FontWeight.bold),
+                  )))),
+        ],
+      ),
+    );
+  }
+
+  void showDeleteDialog(BuildContext context) {
+    showDialog(
+        barrierDismissible: true,
+        context: context,
+        builder: (context) {
+          return BlocConsumer<PlayerDataBloc, PlayerDataState>(
+            listener: (context, state) {},
+            builder: (context, state) {
+              return AlertDialog(
+                actions: [
+                  _DialogButton(
+                    buttonColor: Colors.green,
+                    buttonText: 'No Eliminar',
+                    function: () {
+                      Navigator.pop(context);
+                    },
+                  ),
+                  const SizedBox(
+                    width: 15,
+                  ),
+                  _DialogButton(
+                      buttonColor: Colors.red,
+                      buttonText: 'Eliminar',
+                      function: () {
+                        deleteAllDataMessage(context);
+                        BlocProvider.of<PlayerDataBloc>(context)
+                            .add(DeleteData());
+                        Navigator.pop(context);
+                      })
+                ],
+                actionsAlignment: MainAxisAlignment.center,
+                title: const Text('¿Eliminar los datos almacenados?'),
+              );
+            },
+          );
+        });
+  }
+
+  void deleteAllDataMessage(BuildContext context) {
+    ScaffoldMessenger.of(context).showSnackBar(const SnackBar(
+        content: Text(
+            'Se ha eliminado toda la información del usuario en la aplicación.')));
+  }
+}
+
+class _DialogButton extends StatelessWidget {
+  const _DialogButton({
+    Key? key,
+    required this.buttonColor,
+    required this.buttonText,
+    required this.function,
+  }) : super(key: key);
+  final Color buttonColor;
+  final String buttonText;
+  final VoidCallback function;
+
+  @override
+  Widget build(BuildContext context) {
+    return ElevatedButton(
+        style: ButtonStyle(
+          foregroundColor: MaterialStateProperty.all(Colors.white),
+          backgroundColor: MaterialStateProperty.all(buttonColor),
+        ),
+        onPressed: function,
+        child: Text(buttonText));
   }
 }
