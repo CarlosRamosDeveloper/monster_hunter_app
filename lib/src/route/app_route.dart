@@ -1,13 +1,15 @@
 import 'package:flutter/material.dart';
-import 'package:monster_hunter_app/src/screens/home/homescreen.dart';
 
 import '../models/models.dart';
+import '../screens/screens.dart';
 
 class AppRoute {
   static const initialRoute = HomeScreen();
   static final routeOption = <RouteOption>[
     RouteOption(
-        route: 'home', name: 'Página Principal', page: const HomeScreen())
+        route: 'home', name: 'Página Principal', page: const HomeScreen()),
+    RouteOption(
+        route: 'settings', name: 'Opciones', page: const SettingsScreen()),
   ];
 
   static Map<String, Widget Function(BuildContext)> getAppRoutes() {
