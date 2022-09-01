@@ -36,7 +36,7 @@ class App extends StatelessWidget {
       builder: (context, state) {
         return MaterialApp(
           title: 'Monster Hunter ',
-          theme: AppTheme.nargacuga.theme.appThemeData,
+          theme: state.themeData.theme.appThemeData,
           home: const SettingsScreen(),
           routes: AppRoute.getAppRoutes(),
         );

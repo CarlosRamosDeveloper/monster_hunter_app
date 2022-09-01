@@ -91,7 +91,6 @@ class _ThemeCard extends StatelessWidget {
           onTap: () {
             BlocProvider.of<ThemesBloc>(context)
                 .add(SwitchThemeEvent(theme: theme));
-            log('Botón ${state.props} pulsado');
           },
           child: Container(
             margin: const EdgeInsets.symmetric(vertical: 10, horizontal: 30),
