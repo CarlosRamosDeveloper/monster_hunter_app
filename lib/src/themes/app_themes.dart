@@ -5,12 +5,12 @@ class CustomThemeData {
   final Color secondaryColor;
   final Color tertiaryColor;
   final bool isDarkMode;
-
-  CustomThemeData(
+  const CustomThemeData(
       {required this.primaryColor,
       required this.secondaryColor,
       required this.tertiaryColor,
-      required this.isDarkMode});
+      this.isDarkMode = false});
+
 
   ThemeData get appThemeData => ThemeData(
       useMaterial3: true,
@@ -18,17 +18,18 @@ class CustomThemeData {
       splashColor: secondaryColor,
       scaffoldBackgroundColor: primaryColor,
       colorScheme: ColorScheme(
-          brightness: (isDarkMode) ? Brightness.dark : Brightness.light,
-          primary: primaryColor,
-          onPrimary: (isDarkMode) ? Colors.white : Colors.black,
-          secondary: secondaryColor,
-          onSecondary: tertiaryColor,
-          error: Colors.black,
-          onError: Colors.red,
-          background: secondaryColor,
-          onBackground: (isDarkMode) ? Colors.white : Colors.black,
-          surface: primaryColor,
-          onSurface: (isDarkMode) ? Colors.white : Colors.black),
+        brightness: (isDarkMode) ? Brightness.dark : Brightness.light,
+        primary: primaryColor,
+        onPrimary: (isDarkMode) ? Colors.white : Colors.black,
+        secondary: secondaryColor,
+        onSecondary: tertiaryColor,
+        error: Colors.black,
+        onError: Colors.red,
+        background: secondaryColor,
+        onBackground: (isDarkMode) ? Colors.white : Colors.black,
+        surface: primaryColor,
+        onSurface: (isDarkMode) ? Colors.white : Colors.black,
+      ),
       floatingActionButtonTheme: FloatingActionButtonThemeData(
           backgroundColor: tertiaryColor,
           splashColor: secondaryColor,
