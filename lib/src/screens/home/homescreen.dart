@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:monster_hunter_app/src/screens/home/widgets/sets_list.dart';
 import 'package:monster_hunter_app/src/screens/home/widgets/widgets.dart';
 
 import '../../bloc/player_data_bloc/player_data_bloc.dart';
@@ -38,6 +39,7 @@ class HomeScreen extends StatelessWidget {
                 SizedBox(
                   height: 30,
                 ),
+                SetsList(),
                 Separator(),
                 BottomRectangle()
               ],
