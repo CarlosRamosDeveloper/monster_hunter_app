@@ -37,7 +37,7 @@ class App extends StatelessWidget {
         return MaterialApp(
           title: 'Monster Hunter ',
           theme: state.themeData.theme.appThemeData,
-          home: const SettingsScreen(),
+          home: const HomeScreen(),
           routes: AppRoute.getAppRoutes(),
         );
       },
