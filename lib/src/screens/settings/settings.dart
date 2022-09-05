@@ -1,5 +1,3 @@
-import 'dart:developer';
-
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 
@@ -7,6 +5,8 @@ import '../../bloc/player_data_bloc/player_data_bloc.dart';
 import '../../bloc/themes_bloc/themes_bloc.dart';
 import '../../themes/app_themes.dart';
 import '../../widgets/separator.dart';
+
+
 
 class SettingsScreen extends StatefulWidget {
   const SettingsScreen({Key? key}) : super(key: key);
@@ -125,7 +125,6 @@ class _DeleteDataButton extends StatelessWidget {
   Widget build(BuildContext context) {
     return GestureDetector(
       onTap: () {
-        //TODO: Elimina todos los sets almancenados.
         showDeleteDialog(context);
       },
       child: Column(
