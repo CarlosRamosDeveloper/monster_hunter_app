@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:monster_hunter_app/src/bloc/player_data_bloc/player_data_bloc.dart';
+import 'package:monster_hunter_app/src/utils/utils.dart';
 
 import 'bloc/themes_bloc/themes_bloc.dart';
 import 'dependencies/di.dart' as di;
@@ -18,7 +19,9 @@ class MyApp extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return MultiBlocProvider(providers: [
-      BlocProvider(create: ((context) => PlayerDataBloc())),
+      BlocProvider(
+          create: ((context) => PlayerDataBloc()
+            ..add(AddNewSet(set: DataConstants.testSets[0])))),
       BlocProvider(
           create: (context) => ThemesBloc()
             ..add(const SwitchThemeEvent(theme: AppTheme.nargacuga)))
