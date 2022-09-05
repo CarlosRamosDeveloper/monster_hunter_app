@@ -3,9 +3,7 @@ import 'package:flutter/material.dart';
 import 'widgets/widgets.dart';
 
 class TransitionScreen extends StatelessWidget {
-  const TransitionScreen({Key? key}) : super(key: key);
-
-  //TODO: Preparar el Circular Graph
+  const TransitionScreen({Key? key}) : super(key: key);  
 
   @override
   Widget build(BuildContext context) {
