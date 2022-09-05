@@ -1,8 +1,9 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:monster_hunter_app/src/screens/home/widgets/widgets.dart';
 
 import '../../bloc/player_data_bloc/player_data_bloc.dart';
-import 'widgets/widgets.dart';
+import '../../widgets/separator.dart';
 
 class HomeScreen extends StatelessWidget {
   const HomeScreen({Key? key}) : super(key: key);
@@ -37,11 +38,11 @@ class HomeScreen extends StatelessWidget {
                 SizedBox(
                   height: 30,
                 ),
+                Separator(),
+                BottomRectangle()
               ],
             ));
       },
     );
-
-    //TODO: Probar a añadir un modal para poner el botón de añadir set
   }
 }
