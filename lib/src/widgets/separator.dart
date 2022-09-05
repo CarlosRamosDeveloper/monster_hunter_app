@@ -7,10 +7,13 @@ class Separator extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return Divider(
-      height: 2,
-      thickness: 2,
-      color: Theme.of(context).colorScheme.onPrimary,
+    return SafeArea(
+      bottom: true,
+      child: Divider(
+        height: 2,
+        thickness: 2,
+        color: Theme.of(context).colorScheme.onPrimary,
+      ),
     );
   }
 }
