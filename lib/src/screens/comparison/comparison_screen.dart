@@ -23,7 +23,10 @@ class ComparisonScreen extends StatelessWidget {
         body: Center(
           child: Column(
             mainAxisAlignment: MainAxisAlignment.center,
-            children: [UserSetData(widgetWidth: widgetWidth, set: set)],
+            children: [
+              UserSetData(widgetWidth: widgetWidth, set: set),
+              ComparisonTable(widgetWidth: widgetWidth, set: set)
+            ],
           ),
         ));
   }
