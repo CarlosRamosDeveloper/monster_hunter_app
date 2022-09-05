@@ -11,6 +11,8 @@ class ComparisonScreen extends StatelessWidget {
     const double widgetWidth = 350;
     final set = ModalRoute.of(context)!.settings.arguments as PlayerDataModel;
 
+    //TODO: Arreglar el diseño cuando todo funcione
+
     return Scaffold(
         appBar: AppBar(
             centerTitle: true,
@@ -21,7 +23,7 @@ class ComparisonScreen extends StatelessWidget {
         body: Center(
           child: Column(
             mainAxisAlignment: MainAxisAlignment.center,
-            children: [],
+            children: [UserSetData(widgetWidth: widgetWidth, set: set)],
           ),
         ));
   }
