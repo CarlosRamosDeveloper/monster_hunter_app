@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:monster_hunter_app/src/screens/comparison/comparison_screen.dart';
 
 import '../models/models.dart';
 import '../screens/screens.dart';
@@ -10,6 +11,10 @@ class AppRoute {
         route: 'home', name: 'Página Principal', page: const HomeScreen()),
     RouteOption(
         route: 'settings', name: 'Opciones', page: const SettingsScreen()),
+    RouteOption(
+        route: 'comparison',
+        name: 'Comparación',
+        page: const ComparisonScreen())
   ];
 
   static Map<String, Widget Function(BuildContext)> getAppRoutes() {
