@@ -17,7 +17,7 @@ class FormScreen extends StatelessWidget {
     RegExp onlyNumbers = RegExp(r'^[0-9]+$');
     final GlobalKey<FormState> formKey = GlobalKey<FormState>();
 
-    //TODO: Arreglar el diseño de la página
+    //TODO: Diseño: Arreglar el diseño de la página
 
     return Scaffold(
       appBar: AppBar(
@@ -110,7 +110,7 @@ class FormScreen extends StatelessWidget {
                       isExpanded: true,
                       hint: const Text('Nivel de Potenciador Crítico'),
                       items: const [
-                        //TODO: Arreglar el diseño del dropdown
+                        //TODO: Diseño: Arreglar el diseño del dropdown
                         DropdownMenuItem(
                             value: '0',
                             child: Text(

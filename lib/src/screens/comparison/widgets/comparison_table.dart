@@ -64,7 +64,7 @@ class ComparisonTable extends StatelessWidget {
     final double cb3we2 = getAverageDamage(3, 2);
     final double cb3we3 = getAverageDamage(3, 3);
 
-    //TODO arreglar el fallo de diseño con el nivel de explotar debiliad
+    //TODO: Diseño arreglar el fallo de diseño con el nivel de explotar debiliad
 
     return Container(
       width: widgetWidth,

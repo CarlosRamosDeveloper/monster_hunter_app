@@ -29,6 +29,8 @@ class SetsList extends StatelessWidget {
   }
 }
 
+//TODO: Visual: arreglar el problema del dismissable card en tablets
+
 Widget _dismisableWeaponCard(BuildContext context, PlayerDataModel set) {
   return BlocConsumer<PlayerDataBloc, PlayerDataState>(
     listener: (context, state) {},
