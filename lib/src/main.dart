@@ -12,7 +12,7 @@ import 'themes/app_themes.dart';
 
 void main() async {
   await di.init();
-  BlocOverrides.runZoned(() => runApp(const MyApp()));
+  runApp(const MyApp());
 }
 
 class MyApp extends StatelessWidget {
