@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:monster_hunter_app/src/screens/comparison/comparison_screen.dart';
+import 'package:monster_hunter_app/src/screens/form/form_screen.dart';
 
 import '../models/models.dart';
 import '../screens/screens.dart';
@@ -14,7 +15,8 @@ class AppRoute {
     RouteOption(
         route: 'comparison',
         name: 'Comparación',
-        page: const ComparisonScreen())
+        page: const ComparisonScreen()),
+    RouteOption(route: 'form', name: 'Agregar set', page: const FormScreen())
   ];
 
   static Map<String, Widget Function(BuildContext)> getAppRoutes() {
