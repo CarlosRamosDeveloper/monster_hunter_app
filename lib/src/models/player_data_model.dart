@@ -2,12 +2,22 @@ import 'package:equatable/equatable.dart';
 
 // ignore: must_be_immutable
 class PlayerDataModel extends Equatable {
+  /// Stores the id of the gearset
   final String id;
+
+  /// Stores the name of the gearset
   final String name;
+
+  /// Stores the Weapon Raw Damage of the gearset
   final double weaponRawDamage;
+
+  /// Stores the character's affinity of the gearset
   int charactersAffinity;
+
+  /// Stores the character's critical boost level of the gearset
   final int criticalBoostLvl;
 
+  /// Stores all the data for a gearset
   PlayerDataModel({
     required this.id,
     required this.name,
@@ -25,6 +35,9 @@ class PlayerDataModel extends Equatable {
         criticalBoostLvl: obj["criticalBoostLvl"]);
   }
 
+  /// Gets the critical damage multiplier
+  /// of a set, calculated with
+  /// Critical Boost Level
   double get criticalDamageMultiplier {
     late double criticalDamageMultiplier;
 
@@ -47,6 +60,7 @@ class PlayerDataModel extends Equatable {
     return criticalDamageMultiplier;
   }
 
+  /// Gets the average damage with a weapon
   double get averageDamage {
     double totalDamage = 0;
     double averageDamage = 0;
@@ -74,6 +88,7 @@ class PlayerDataModel extends Equatable {
     return averageDamage;
   }
 
+  /// Prints the average damage of the set
   String showAverageDamage() {
     return 'El daño medio de $name es de $averageDamage';
   }
